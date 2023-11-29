@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>202007025 김지민</title>
+</head>
+
+<script type="text/javascript">
+	function checkForm() {
+		const form = document.signup;
+		const id = form.id.value;
+		const pw = form.pw.value;
+		const name = form.name.value;
+		var regId = /^[a-zA-Z0-9]{5,12}$/;
+		var regPw = /^(?=.*[A-Za-z0-9])(?=.*?[~!@#$%^&*-_?]).{8,}$/;
+		var regName = /^[a-zA-Z가-힣]{3,}$/;
+		
+		if(!regId.test(id)) { // 영문자로 시작하는지 확인 및 숫자를 포함해야함
+			alert("아이디는 문자로 5글자 이상 12글자 이하로 시작해주세요!");
+			form.id.select();
+			return false;
+		}
+		if(!isNaN(id.substr(0, 1))) { // 숫자로 시작하는지 확인
+			alert("아이디는 숫자로 시작할 수 없습니다!");
+			form.id.select();
+			return false;
+		}
+		if(!regPw.test(pw)) {
+			alert("대문자, 소문자, 숫자가 최소 1개씩 있어야합니다!");
+			form.ps.select();
+			return false;
+		}
+		if(pw != form.checkpw.value) {
+			alert("비밀번호 확인을 다시 해주세요.");
+			form.checkps.select();
+			return false;
+		}
+		if(!regName.test(name)) {
+			alert("이름을 정확히 입력해주세요(영한글 3글자 이상)")
+			form.name.select();
+			return false;
+		}
+	}
+</script>
+
+<body>
+	<form action="Vaildation.jsp" name="signup" method="post">
+		<table align=center>
+			<tr><td colspan=2 align=center height=40><b>회원가입</b></td></tr>
+			<tr>
+				<td align=right>ID</td>
+				<td><input type="text" name="id" required></td>
+			</tr>
+			<tr>
+				<td align=right>Password</td>
+				<td><input type="password" name="pw" required></td>
+			</tr>
+			<tr>
+				<td align=right>Password(Check)</td>
+				<td><input type="password" name="checkpw" required></td>
+			</tr>
+			<tr>
+				<td align=right>Name</td>
+				<td><input type="text" name="name" required></td>
+			</tr>
+			<tr>
+				<td align=right>HP</td>
+				<td>
+					<select name="hp">
+						<option value="02" selected>02</option>
+						<option value="031">031</option>
+						<option value="032">032</option>
+						<option value="033">033</option>
+						<option value="041">041</option>
+						<option value="042">042</option>
+						<option value="043">043</option>
+						<option value="044">044</option>
+						<option value="051">051</option>
+						<option value="052">052</option>
+						<option value="053">053</option>
+						<option value="054">054</option>
+						<option value="055">055</option>
+						<option value="061">061</option>
+						<option value="062">062</option>
+						<option value="063">063</option>
+						<option value="064">064</option>
+					</select><input type="number" name="fhp" min="1" max="9999" required>
+					-<input type="number" name="shp" min="1" max="9999" required>
+				</td>
+			</tr>
+			<tr>
+				<td align=right>Email</td>
+				<td><input type="email" name ="email" required></td>
+			</tr>
+			<tr>
+				<td colspan=2 align=center>
+					<input type="radio" name="gender" value="male">Male
+					<input type="radio" name="gender" value="female">Female
+					<input type="radio" name="gender" value="unknown">Unknown
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align=center>
+					Age  <input type="number" name="age" value="20" min="1" max="120" step="1">
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align=center>
+					Birth  <input type="date" name="birth" value="2001-01-01">
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 align=center height=50>
+					<input type="submit" value="회원가입하기" onclick="checkForm()">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

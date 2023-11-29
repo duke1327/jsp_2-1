@@ -1,0 +1,10 @@
+1701237378285	Move 'context.xml' to 'META-INF'
+1701237604611	Delete elements
+1701237617849	Delete elements
+1701238097838	Move 2 resources to 'webapp'
+1701238612859	Move 'userList2.jsp' to 'WEB-INF'
+1701238616518	Move 'userList2.jsp' to 'webapp'
+1701238625428	Rename resource 'userList2.jsp'
+1701238842464	Delete element
+1701238885849	Rename resource 'confirmId.jsp'
+1701238923538	Rename resource 'confirmID.jsp'
